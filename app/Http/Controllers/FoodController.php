@@ -118,9 +118,4 @@ class FoodController extends Controller
         $makanan->delete();
         return redirect('dashboard/makanan')->with('success','Data makanan berhasil dihapus!');
     }
-    public function like(Food $food){
-        ++$food->favorite;
-        $food->save();
-        return back();
-    }
 }

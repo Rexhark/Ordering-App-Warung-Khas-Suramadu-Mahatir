@@ -66,4 +66,9 @@ class MenuController extends Controller
         }
         return view('main.pages.pesanan', compact(['orderdetail','order']));
     }
+    public function like(Food $food){
+        ++$food->favorite;
+        $food->save();
+        return back();
+    }
 }

@@ -50,7 +50,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('dashboard/tag/hapus', 'hapus');
     });
     Route::controller(FoodController::class)->group(function () {
-        Route::get('menu/{food:slug}/like', 'like');
         Route::get('dashboard/makanan', 'index');
         Route::get('dashboard/kategori/{category:name}', 'indexCategory');
         Route::get('dashboard/makanan/tambah', 'indexTambah');
@@ -82,6 +81,7 @@ Route::get('/home', function () {
     return view('main.pages.home');
 });
 Route::controller(MenuController::class)->group(function () {
+    Route::get('menu/{food:slug}/like', 'like');
     Route::get('/menu', 'indexMenu');
     Route::get('menu/{food:slug}/beli', 'tambahPesanan');
     Route::get('/pesanan', 'indexPesanan')->name('main.pages.pesanan');
